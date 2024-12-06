@@ -4,7 +4,6 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5001; // Use PORT from environment or default to 5001
-const API_KEY = process.env.4b82c9f291e9483490162102240412; // Use environment variable for API key
 
 // Enable CORS for your frontend
 app.use(cors());
