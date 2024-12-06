@@ -4,16 +4,15 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5001; // Use PORT from environment or default to 5001
-
+const API_KEY = process.env.4b82c9f291e9483490162102240412; // Use environment variable for API key
 
 // Enable CORS for your frontend
 app.use(cors());
 
 // Proxy endpoint to fetch weather data
 app.get('/weather', async (req, res) => {
-  const apiKey = '4b82c9f291e9483490162102240412'; // Replace with your actual API key
   const city = req.query.city || 'London'; // Default to London if no city is provided
-  const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
+  const url = `http://api.weatherapi.com/v1/current.json?key=4b82c9f291e9483490162102240412&q=${city}&aqi=no`;
 
   try {
     const response = await axios.get(url);
@@ -26,5 +25,5 @@ app.get('/weather', async (req, res) => {
 
 // Start the server
 app.listen(PORT, () => {
-  console.log(`Proxy server running on https://friendly-bienenstitch-d03f3d.netlify.app/`);
+  console.log(`Server running on port ${PORT}`);
 });
